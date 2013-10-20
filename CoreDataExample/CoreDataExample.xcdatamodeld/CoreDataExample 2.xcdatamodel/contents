@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="3396" systemVersion="13A598" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="Artist" representedClassName="MNDArtist" syncable="YES">
+        <attribute name="identifier" attributeType="Integer 64" defaultValueString="0" indexed="YES" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="Bundle" representedClassName="MNDBundle" syncable="YES">
+        <attribute name="bundleDescription" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="identifier" attributeType="Integer 64" defaultValueString="0" indexed="YES" syncable="YES"/>
+        <attribute name="isPurchased" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="recordings" optional="YES" toMany="YES" deletionRule="Cascade" ordered="YES" destinationEntity="Recording" inverseName="bundle" inverseEntity="Recording" syncable="YES"/>
+    </entity>
+    <entity name="Recording" representedClassName="MNDRecording" syncable="YES">
+        <attribute name="identifier" optional="YES" attributeType="Integer 64" defaultValueString="0" indexed="YES" syncable="YES"/>
+        <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="bundle" maxCount="1" deletionRule="Nullify" destinationEntity="Bundle" inverseName="recordings" inverseEntity="Bundle" syncable="YES"/>
+    </entity>
+    <entity name="Song" representedClassName="MNDSong" syncable="YES">
+        <attribute name="artistName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="identifier" attributeType="Integer 64" defaultValueString="0" indexed="YES" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Bundle" positionX="160" positionY="81" width="128" height="118"/>
+        <element name="Recording" positionX="171" positionY="279" width="128" height="88"/>
+        <element name="Artist" positionX="-164" positionY="126" width="128" height="73"/>
+        <element name="Song" positionX="0" positionY="0" width="0" height="0"/>
+    </elements>
+</model>
